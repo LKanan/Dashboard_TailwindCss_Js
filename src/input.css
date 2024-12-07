@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav_link:hover{
+    @apply hover:border-b-2 border-black;
+}

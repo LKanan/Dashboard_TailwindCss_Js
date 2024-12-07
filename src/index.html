@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body class="bg-slate-00 dark:bg-slate-900">
+  <!-- Navigation starts here -->
+   <!-- Sidebar -->
+  <nav class="bg-white shadow-md">
+    <div class="mx-auto">
+      <div class="flex justify-between space-x-2 font-bold text-gray-400">
+      <div>
+        <!-- logo -->
+        <svg class="w-[38px] h-[38px] text-slate-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M21 12a28.076 28.076 0 0 1-1.091 9M7.231 4.37a8.994 8.994 0 0 1 12.88 3.73M2.958 15S3 14.577 3 12a8.949 8.949 0 0 1 1.735-5.307m12.84 3.088A5.98 5.98 0 0 1 18 12a30 30 0 0 1-.464 6.232M6 12a6 6 0 0 1 9.352-4.974M4 21a5.964 5.964 0 0 1 1.01-3.328 5.15 5.15 0 0 0 .786-1.926m8.66 2.486a13.96 13.96 0 0 1-.962 2.683M7.5 19.336C9 17.092 9 14.845 9 12a3 3 0 1 1 6 0c0 .749 0 1.521-.031 2.311M12 12c0 3 0 6-2 9"/>
+        </svg>
+        <span>Dashboard</span>
+      </div>
+      <div class="hidden md:flex flex space-x-4">
+        <div class="hidden md:flex flex">
+          <input type="text" class="lg:w-96 sm:w-48 bg-gray-100 rounded-md px-1 focus:outline-none"/>
+        </div>
+      </div>
+      <ul class="flex space-x-4 py-1 lg:text-sm font-bold text-slate-600 items-center">
+        <li>Features</li>
+        <li>Pricing</li>
+        <li>Sign In</li>
+        <li class="text-slate-500">or</li>
+        <li class="text-white bg-green-400 py-1 rounded-md hover:bg-green-500">Sign Up</li>
+      </ul>
+      </div>
+    </div>
+    <!-- Mobile view -->
+     <button class="p-1 mr-5 ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple mobile-menu-button"
+     @click="toggleSideMenu"
+     aria-label="Menu">
+      <svg class="w-[38px] h-[38px] text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-width="2.3" d="M5 7h14M5 12h14M5 17h14"/>
+      </svg>        
+     </button>
+  </nav>
+   <div>
+    <ul>
+      <li>Features</li>
+      <li>Pricing</li>
+      <li>Sign In</li>
+      <li>or</li>
+      <li>Sign Up</li>
+    </ul>
+   </div>
+</body>
+</html>

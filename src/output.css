@@ -1033,6 +1033,14 @@ video {
     grid-column: span 2 / span 2;
   }
 
+  .md\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .md\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+
   .md\:mx-auto {
     margin-left: auto;
     margin-right: auto;
@@ -1058,6 +1066,10 @@ video {
 
   .lg\:col-span-4 {
     grid-column: span 4 / span 4;
+  }
+
+  .lg\:col-span-1 {
+    grid-column: span 1 / span 1;
   }
 
   .lg\:w-96 {

@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
-  <body class="bg-slate-00 dark:bg-slate-900">
+  <!-- <body class="bg-slate-00 dark:bg-slate-900"> -->
+  <body class="bg-slate-00">
     <!-- Navigation starts here -->
-    <nav class="bg-white shadow-md">
-      <div class="mx-auto">
+    <nav class="bg-white shadow-md flex justify-between md:block">
+      <div class="md:mx-auto">
         <div class="flex justify-between py-2 px-2">
           <div class="flex items-center space-x-2 font-bold text-gray-400">
             <!-- logo -->
@@ -23,27 +26,25 @@
                 d="M4.9 19a22 22 0 0 1 -.9 -7v-1a8 8 0 0 1 12 -6.95" /></svg>
             <span>Dashboard</span>
           </div>
-          <div class="hidden md:flex space-x-4">
-            <div class="hidden md:flex">
-              <input type="text"
-                class="lg:w-96 sm:w-48 bg-gray-100 rounded-md px-1 focus:outline-none" />
-            </div>
+          <div class="hidden md:flex">
+            <input type="text"
+              class="lg:w-96 sm:w-48 bg-gray-100 rounded-md px-1 focus:outline-none" />
           </div>
           <ul
-            class="flex space-x-4 py-1 lg:text-sm font-bold text-slate-600 items-center">
-            <li>Features</li>
-            <li>Pricing</li>
-            <li>Sign In</li>
+            class="hidden md:flex space-x-4 py-1 font-bold text-slate-600 items-center">
+            <li class="nav_link">Features</li>
+            <li class="nav_link">Pricing</li>
+            <li class="nav_link">Sign In</li>
             <li class="text-slate-500">or</li>
             <li
-              class="text-white bg-green-400 py-1 rounded-md hover:bg-green-500">Sign
+              class="text-white bg-green-400 py-1 rounded-md hover:bg-green-500 px-2">Sign
               Up</li>
           </ul>
         </div>
       </div>
       <!-- Mobile view goes here.. -->
       <button
-        class="p-1 mr-5 ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple mobile-menu-button"
+        class="p-1 ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple mobile-menu-button"
         @click="toggleSideMenu"
         aria-label="Menu">
         <svg class="w-[38px] h-[38px] text-gray-800" aria-hidden="true"
@@ -55,7 +56,6 @@
       </button>
     </nav>
     <div class="hidden mobile-menu">
-      <!-- <div class="mobile-menu"> -->
       <ul class="font-bold text-slate-600 items-center">
         <li
           class="bloock text-md px-2 py-4 hover:bg-green-500 transition duration-300">Features</li>
@@ -70,36 +70,236 @@
           Up</li>
       </ul>
     </div>
-    <!-- Side bar -->
-    <div
-      class="z-20 flex-shrink-0 h-screen hidden w-64 overflow-y-auto bg-slate-800 md:block">
-      <div class="bg-slate-900 h-20 w-64 py-3 px-5 ">
-        <div class="flex space-x-4 bg-green-400 p-1 rounded-md h-12 w-12">
-          <img src="images/profile.jpg" class="flex rounded-md object-cover" alt="">
-          <div class="flex flex-col">
-            <h3 class="text-white font-bold  uppercase text-base">Manager</h3>
-            <h4 class="text-light">John</h4>
+    <div class="flex">
+      <!-- Side bar -->
+      <div
+        class="z-20 flex-shrink-0 h-screen hidden w-64 overflow-y-auto bg-slate-800 md:block">
+        <div class="bg-slate-900 h-20 w-64 py-3 px-5 ">
+          <div class="flex space-x-4 bg-green-400 p-1 rounded-md h-12 w-12">
+            <img src="images/profile.jpg" class="flex rounded-md object-cover"
+              alt>
+            <div class="text-white flex flex-col">
+              <h3 class="font-bold  uppercase text-base">Manager</h3>
+              <h4 class="text-light">John</h4>
+            </div>
           </div>
         </div>
+        <div
+          class="flex flex-col px-4 py-4 text-gray-400 text-md space-y-3 font-medium ">
+          <a href="#" class="flex">
+            <a href class="uppercase text-gray-700">Demo</a>
+            <a href class="flex text-gray-200 space-x-2">Admin</a>
+            <a href class="flex text-gray-200 space-x-2">Enterprice</a>
+            <a href class="flex text-gray-200 space-x-2">
+              <span>Staff</span>
+            </a>
+            <a href class="flex text-gray-200 space-x-2">
+              <span>Min</span>
+            </a>
+            <a href class="flex text-gray-200 space-x-2">
+              <span>Fixed</span>
+            </a>
+          </a>
+          <a href="#" class="flex">
+            <a href class="uppercase text-gray-700">Demo 2</a>
+            <a href class="flex text-gray-200 space-x-2">Buttons</a>
+            <a href class="flex text-gray-200 space-x-2">Alerts</a>
+            <a href class="flex text-gray-200 space-x-2">
+              <span>Models</span>
+            </a>
+            <a href class="flex text-gray-200 space-x-2">
+              <span>Charts</span>
+            </a>
+            <a href class="flex text-gray-200 space-x-2">
+              <span>Forms</span>
+            </a>
+          </a>
+        </div>
       </div>
-      <div
-        class="flex flex-col px-4 py-4 text-gray-400 text-md space-y-3 font-medium ">
-        <a href="#" class="flex">
-          <a href class="uppercase text-gray-700">Demos</a>
-          <a href class="flex text-gray-200 space-x-2">Admin</a>
-          <a href class="flex text-gray-200 space-x-2">Enterprice</a>
-          <a href class="flex text-gray-200 space-x-2">
-            <span>Staff</span>
-          </a>
-          <a href class="flex text-gray-200 space-x-2">
-            <span>Min</span>
-          </a>
-          <a href class="flex text-gray-200 space-x-2">
-            <span>Fixed</span>
-          </a>
-        </a>
+      <!-- Content -->
+      <div class="bg-slate-200 h-screen w-full overflow-y-auto">
+        <div class="p-8">
+          <div class="grid grid-cols-1 md:cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+            <div
+              class="p-4 bg-white rounded-lg flex items-center h-32 shadow-sm">
+              <div class="w-3/5 flex justify-start">
+                <ul>
+                  <li class="font-bold text-gray-400">Todays Money</li>
+                  <li class="font-extrabold text-slate-800 text-xl">$53000</li>
+                  <li><span class="text-green-400 font-bold">+34</span> <span
+                      class="text-gray-400">Since Yesterday</span></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="w-2/5 flex justify-end">
+                <div class="bg-rose-500 rounded-full p-2">
+                  svg
+                </div>
+              </div>
+            </div>
+            <div
+              class="p-4 bg-white rounded-lg flex items-center h-32 shadow-sm">
+              <div class="w-3/5 flex justify-start">
+                <ul>
+                  <li class="font-bold text-gray-400">Todays Money</li>
+                  <li class="font-extrabold text-slate-800 text-xl">$53000</li>
+                  <li><span class="text-green-400 font-bold">+34</span> <span
+                      class="text-gray-400">Since Yesterday</span></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="w-2/5 flex justify-end">
+                <div class="bg-gray-500 rounded-full p-2">
+                  svg
+                </div>
+              </div>
+            </div>
+            <div
+              class="p-4 bg-white rounded-lg flex items-center h-32 shadow-sm">
+              <div class="w-3/5 flex justify-start">
+                <ul>
+                  <li class="font-bold text-gray-400">Todays Money</li>
+                  <li class="font-extrabold text-slate-800 text-xl">$53000</li>
+                  <li><span class="text-green-400 font-bold">+34</span> <span
+                      class="text-gray-400">Since Yesterday</span></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="w-2/5 flex justify-end">
+                <div class="bg-indigo-500 rounded-full p-2">
+                  svg
+                </div>
+              </div>
+            </div>
+            <div
+              class="p-4 bg-white rounded-lg flex items-center h-32 shadow-sm">
+              <div class="w-3/5 flex justify-start">
+                <ul>
+                  <li class="font-bold text-gray-400">Todays Money</li>
+                  <li class="font-extrabold text-slate-800 text-xl">$53000</li>
+                  <li><span class="text-green-400 font-bold">+34</span> <span
+                      class="text-gray-400">Since Yesterday</span></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="w-2/5 flex justify-end">
+                <div class="bg-green-500 rounded-full p-2">
+                  svg
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-white rounded-lg shadow-sm lg:col-span-2">
+              <div class="rounded-lg">
+                <div class="flex-1 bg-gray-50">Bar Chart</div>
+                <canvas class="p-2" id="chartBar"></canvas>
+              </div>
+            </div>
+
+            <div class="rounded-lg shadow-sm bg-cover lg:col-span-2" style="background-image:url('./images/illustration.jpg');">
+              <div class="text-white   items-baseline">
+                <h3 class="flex mt-32 pl-5 font-bold uppercase">We've got you !!</h3>
+                <p class="flex items-center pt-5 pl-5 ">We help each other to grow toether</p>
+              </div>
+            </div>
+            <div class="rounded-lg shadow-sm bg-white md:col-span-2 lg:col-span-4">
+              <div class="overflow-x-auto relative sm:rounded-lg">
+                <table class="w-full text-sm text-left text-gray-500">
+                  <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                      <th class="py-3 px-6">Product Name</th>
+                      <th class="py-3 px-6">Color</th>
+                      <th class="py-3 px-6">Category</th>
+                      <th class="py-3 px-6">Price</th>
+                      <th class="py-3 px-6">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="bg-white border-b">
+                      <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">Apple MackBook Pro 17"</th>
+                      <td class="py-4 px-6">Silver</td>
+                      <td class="py-4 px-6">Laptop</td>
+                      <td class="py-4 px-6">$2999</td>
+                      <td class="py-4 px-6">
+                        <a href="#" class="font-medium text-blue-600 hover:underline ">Edit</a>
+                      </td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                      <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">Apple MackBook Pro 17"</th>
+                      <td class="py-4 px-6">Silver</td>
+                      <td class="py-4 px-6">Laptop</td>
+                      <td class="py-4 px-6">$2999</td>
+                      <td class="py-4 px-6">
+                        <a href="#" class="font-medium text-blue-600 hover:underline ">Edit</a>
+                      </td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                      <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">Apple MackBook Pro 17"</th>
+                      <td class="py-4 px-6">Silver</td>
+                      <td class="py-4 px-6">Laptop</td>
+                      <td class="py-4 px-6">$2999</td>
+                      <td class="py-4 px-6">
+                        <a href="#" class="font-medium text-blue-600 hover:underline ">Edit</a>
+                      </td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                      <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">Apple MackBook Pro 17"</th>
+                      <td class="py-4 px-6">Silver</td>
+                      <td class="py-4 px-6">Laptop</td>
+                      <td class="py-4 px-6">$2999</td>
+                      <td class="py-4 px-6">
+                        <a href="#" class="font-medium text-blue-600 hover:underline ">Edit</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+           <!-- Footer -->
+            <div class="pt-5 flex justify-center">
+              <p class="text-gray-4000">Designed by <span class="font-bold">LKanan</span></p>
+            </div>
+        </div>
       </div>
     </div>
-    <!-- Content -->
   </body>
+  <!-- Chart bar -->
+  <script>
+    const labelsBarChart = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+    ];
+    const dataBarChart={
+      labels:labelsBarChart,
+      datasets:[
+        {
+          label:"My First dataset",
+          backgroundcolor:"hsl(252,82.9%,67.8%)",
+          bordercolor:"hsl(252,82.9%,67.8%)",
+          data:[0,10,5,2,20,30,45],
+        }
+      ]
+    }
+    const configBarchart = {
+      type:"bar",
+      data:dataBarChart,
+      option:{},
+    }
+    var chartBar = new Chart(
+      document.getElementById("chartBar"),
+      configBarchart
+    )
+  </script>
+  <script>
+    const btn=document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu")
+
+    btn.addEventListener("click", ()=>{
+      menu.classList.toggle("hidden");
+    });
+  </script>
 </html>
